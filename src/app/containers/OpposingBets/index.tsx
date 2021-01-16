@@ -39,10 +39,8 @@ export function OpposingBets(props: Props) {
   const selectedParticipants = betsData.participants.filter(
     participant => participant.selected,
   );
-  const winner =
-    selectedParticipants[
-      Math.floor(Math.random() * selectedParticipants.length)
-    ].id;
+  const opposingBet = Math.floor(Math.random() * 10);
+  const winner = selectedParticipants[opposingBet] && selectedParticipants[opposingBet].id;
 
   return (
     <>
@@ -82,7 +80,7 @@ export function OpposingBets(props: Props) {
                 font-family="Arial"
                 dy=".3em"
               >
-                {selectedParticipants.length}
+                {opposingBet}
               </text>
               Sorry, your browser does not support inline SVG.
             </svg>

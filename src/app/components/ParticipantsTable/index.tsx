@@ -11,6 +11,7 @@ import { messages } from './messages';
 import { Table, Image } from 'react-bootstrap';
 import { Participant } from '../../../store/bets/types';
 import { useDispatch } from 'react-redux';
+import { FaRegDotCircle, FaTrophy, FaDotCircle } from 'react-icons/fa';
 
 interface Props {
   participants: Participant[];
@@ -38,10 +39,16 @@ export function ParticipantsTable(props: Props) {
             <th style={{ textAlign: 'left' }}>PLAYER NAME</th>
             <th>LEVEL</th>
             <th>AVATAR</th>
-            <th>BET</th>
-            <th>WINS</th>
+            <th>
+              <FaRegDotCircle /> BET
+            </th>
+            <th>
+              <FaTrophy /> WINS
+            </th>
             <th>LOST</th>
-            <th>PRICE</th>
+            <th>
+              <FaDotCircle /> PRICE
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -77,4 +84,6 @@ export function ParticipantsTable(props: Props) {
   );
 }
 
-const Div = styled.div``;
+const Div = styled.div`
+  min-height: '100vh';
+`;

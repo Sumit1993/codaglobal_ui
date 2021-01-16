@@ -15,7 +15,7 @@ import { selectBets } from '../../../store/bets/selectors';
 import { betsSaga } from '../../../store/bets/saga';
 import { messages } from './messages';
 import { Col, Container, Row } from 'react-bootstrap';
-import { SelectedBets } from '../../components/SelectedBets/Loadable';
+import { SelectedParticipants } from '../../components/SelectedParticipants/Loadable';
 import { ParticipantsList } from '../../components/ParticipantsList/Loadable';
 
 interface Props {}
@@ -42,10 +42,10 @@ export function Home(props: Props) {
         <title>Home</title>
         <meta name="description" content="Description of Home" />
       </Helmet>
-      <Container fluid style={{ height: '100vh' }} className="p-0">
-        <Row noGutters className="h-100">
+      <Container fluid className="p-0" style={{ minHeight: '100vh' }}>
+        <Row noGutters style={{ minHeight: '100vh' }}>
           <Col xs={3}>
-            <SelectedBets />
+            <SelectedParticipants participants={betsData.participants} />
           </Col>
           <Col xs={9}>
             <ParticipantsList participants={betsData.participants} />

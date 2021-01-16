@@ -20,7 +20,7 @@ export function ParticipantsList(props: Props) {
   const { t, i18n } = useTranslation();
 
   return (
-    <Div className="h-100 p-5">
+    <Div className="p-5">
       <SearchPanel />
       <ParticipantsTable participants={props.participants} />
     </Div>
@@ -29,4 +29,7 @@ export function ParticipantsList(props: Props) {
 
 const Div = styled.div`
   background-color: #f0f4f6;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 `;

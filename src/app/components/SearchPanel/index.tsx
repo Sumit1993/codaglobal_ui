@@ -36,7 +36,7 @@ export function SearchPanel(props: Props) {
 }
 
 const Div = styled.div`
-  height: 25%;
+  height: 10em;
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;

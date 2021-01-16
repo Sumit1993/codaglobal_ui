@@ -15,6 +15,7 @@ import { GlobalStyle } from 'styles/global-styles';
 import { Home } from './containers/Home/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import { OpposingBets } from './containers/OpposingBets/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -30,6 +31,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/opposingBets" component={OpposingBets} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

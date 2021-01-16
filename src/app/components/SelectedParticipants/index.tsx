@@ -10,6 +10,7 @@ import { messages } from './messages';
 import { Button, Col, Row } from 'react-bootstrap';
 import { FaDotCircle, FaRegDotCircle, FaTrophy } from 'react-icons/fa';
 import { Participant } from '../../../store/bets/types';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   participants: Participant[];
@@ -19,10 +20,19 @@ export function SelectedParticipants(props: Props) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t, i18n } = useTranslation();
 
+  const history = useHistory();
+
   return (
     <Div>
       <GraphicsSection />
       <BottomSection>
+        <Heading className="m-4 align-items-center">
+          Select Playing{' '}
+          {
+            props.participants.filter(participant => participant.selected)
+              .length
+          }
+        </Heading>
         <SelectedListContainer>
           {props.participants.map(
             participant =>
@@ -52,7 +62,11 @@ export function SelectedParticipants(props: Props) {
           )}
         </SelectedListContainer>
         <ButtonContainer>
-          <Button variant="primary" className="w-50">
+          <Button
+            variant="primary"
+            className="w-50"
+            onClick={() => history.push('/opposingBets')}
+          >
             Start
           </Button>
         </ButtonContainer>
@@ -60,7 +74,9 @@ export function SelectedParticipants(props: Props) {
     </Div>
   );
 }
-
+const Heading = styled.em`
+  color: #5c4ddf;
+`;
 const Div = styled.div`
   background-color: #ebf0f2;
   min-height: 100%;

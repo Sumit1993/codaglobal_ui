@@ -21,7 +21,7 @@ export function ParticipantsList(props: Props) {
 
   return (
     <Div className="p-5">
-      <SearchPanel />
+      <SearchPanel participants={props.participants} />
       <ParticipantsTable participants={props.participants} />
     </Div>
   );

@@ -35,6 +35,12 @@ export function Home(props: Props) {
   React.useEffect(() => {
     if (betsData.participants.length === 0) dispatch(betsActions.loadBets());
   }, []);
+  const filteredParticipants = betsData.participants.filter(
+    participant =>
+      participant.Name.toLowerCase().indexOf(
+        betsData.searchText.toLowerCase(),
+      ) >= 0,
+  );
 
   return (
     <>
@@ -48,7 +54,7 @@ export function Home(props: Props) {
             <SelectedParticipants participants={betsData.participants} />
           </Col>
           <Col xs={9}>
-            <ParticipantsList participants={betsData.participants} />
+            <ParticipantsList participants={filteredParticipants} />
           </Col>
         </Row>
       </Container>

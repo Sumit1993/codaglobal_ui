@@ -13,9 +13,10 @@ import { ParticipantCard } from '../../components/ParticipantCard';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey } from '../../../store/bets/slice';
 import { messages } from './messages';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { betsSaga } from '../../../store/bets/saga';
 import { selectBets } from '../../../store/bets/selectors';
+import { betsActions } from '../../../store/bets/slice';
 import { useHistory } from 'react-router-dom';
 
 interface Props {}
@@ -31,6 +32,7 @@ export function OpposingBets(props: Props) {
   const { t, i18n } = useTranslation();
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   if (betsData.participants.length === 0) {
     history.replace('/');
@@ -40,7 +42,13 @@ export function OpposingBets(props: Props) {
     participant => participant.selected,
   );
   const opposingBet = Math.floor(Math.random() * 10);
-  const winner = selectedParticipants[opposingBet] && selectedParticipants[opposingBet].id;
+  const winner =
+    selectedParticipants[opposingBet] && selectedParticipants[opposingBet].id;
+  selectedParticipants.forEach(participant => {
+    if (participant.id !== winner)
+      dispatch(betsActions.setLooser(participant.id));
+  });
+  selectedParticipants[opposingBet] && dispatch(betsActions.setWinner(winner));
 
   return (
     <>

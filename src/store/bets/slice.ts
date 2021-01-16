@@ -30,6 +30,8 @@ const betsSlice = createSlice({
           level: Math.floor(Math.random() * 10) + 1,
           win: Math.floor(Math.random() * 50) + 1,
           lost: Math.floor(Math.random() * 10) + 1,
+          fate: '',
+          winnings: 0,
         }),
       );
       state.participants = repos;
@@ -45,6 +47,27 @@ const betsSlice = createSlice({
       ].selected = !state.participants[
         state.participants.findIndex(item => item.id === action.payload)
       ].selected;
+    },
+    setWinner(state, action: PayloadAction<number>) {
+      state.participants[
+        state.participants.findIndex(item => item.id === action.payload)
+      ].fate = 'Win';
+      state.participants[
+        state.participants.findIndex(item => item.id === action.payload)
+      ].winnings = 0;
+    },
+    setLooser(state, action: PayloadAction<number>) {
+      state.participants[
+        state.participants.findIndex(item => item.id === action.payload)
+      ].fate = 'Loss';
+      state.participants[
+        state.participants.findIndex(item => item.id === action.payload)
+      ].winnings =
+        Number.parseInt(
+          state.participants[
+            state.participants.findIndex(item => item.id === action.payload)
+          ].Price,
+        ) * 2;
     },
   },
 });

@@ -9,6 +9,8 @@ export interface Participant {
   level: number;
   win: number;
   lost: number;
+  fate: 'Win' | 'Loss';
+  winnings: number;
 }
 
 export interface BetsState {

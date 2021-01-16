@@ -1,3 +1,5 @@
+The screenshots are in "screenshots" folder
+
 Inside the project folder, you can run these commands:
 
 npm start or yarn start
@@ -18,3 +20,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.
 
 Your app is ready to be deployed.
+
+The Site is hosted at
+https://compassionate-lalande-a0a6b0.netlify.app

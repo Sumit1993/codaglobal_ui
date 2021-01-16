@@ -49,10 +49,12 @@ export function ParticipantsTable(props: Props) {
             <th>
               <FaDotCircle /> PRICE
             </th>
+            <th>WINNINGS</th>
+            <th>FATE</th>
           </tr>
         </thead>
         <tbody>
-          {props.participants.slice(0, 10).map(participant => (
+          {props.participants.map(participant => (
             <tr>
               <td>
                 <input
@@ -76,6 +78,8 @@ export function ParticipantsTable(props: Props) {
               <td>{participant.win}</td>
               <td>{participant.lost}</td>
               <td>{participant.Price}</td>
+              <td>{participant.winnings}</td>
+              <td>{participant.fate}</td>
             </tr>
           ))}
         </tbody>

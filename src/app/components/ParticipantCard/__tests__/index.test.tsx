@@ -18,6 +18,8 @@ describe('<ParticipantCard  />', () => {
           level: 1,
           win: 1,
           lost: 1,
+          fate: 'Loss',
+          winnings: 0,
         }}
         result={false}
       />,

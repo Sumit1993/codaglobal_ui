@@ -90,7 +90,7 @@ const Avatar = styled.img`
 `;
 const GraphicsSection = styled.div`
   display: flex;
-  flex: 0.4;
+  height: 5em;
 `;
 const BottomSection = styled.div`
   display: flex;
